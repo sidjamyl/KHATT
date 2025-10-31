@@ -1,8 +1,23 @@
 "use client"
 
+import { useState, useEffect } from "react"
+
 export default function AboutSection() {
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
   return (
-    <section id="story" className="min-h-screen flex items-center py-20 px-4 bg-foreground text-background">
+    <section id="story" className={`min-h-screen flex items-center py-20 px-4 bg-foreground transition-colors duration-700 ${
+      isScrolled ? 'text-white' : 'text-background'
+    }`}>
       <div className="max-w-6xl mx-auto w-full">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Text Content */}

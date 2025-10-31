@@ -1,16 +1,22 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Anton, Gloock } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
+import { Geist, Geist_Mono } from "next/font/google"
 import "./globals.css"
+import PreLoader from "./components/PreLoader"
 
-const _anton = Anton({ subsets: ["latin"], weight: ["400"] })
-const _gloock = Gloock({ subsets: ["latin"], weight: ["400"] })
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+})
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+})
 
 export const metadata: Metadata = {
-  title: "KHATT - Production Agency",
-  description: "KHATT: A North African production agency. Every idea begins with a sketch.",
-  generator: "v0.app",
+  title: "KHATT Production",
+  description: "Every idea begins with a sketch",
 }
 
 export default function RootLayout({
@@ -20,9 +26,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${_gloock.className} antialiased bg-background text-foreground`}>
+      <head>
+        <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet" />
+      </head>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <PreLoader />
         {children}
-        <Analytics />
       </body>
     </html>
   )

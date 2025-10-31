@@ -1,10 +1,25 @@
 "use client"
 
+import { useState, useEffect } from "react"
+
 export default function ContactSection() {
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
   return (
-    <section id="contact" className="min-h-screen py-32 px-8 bg-black flex items-center">
+    <section id="contact" className={`min-h-screen py-32 px-8 bg-black flex items-center transition-colors duration-700`}>
       <div className="max-w-5xl mx-auto w-full text-center">
-        <h2 className="text-6xl md:text-7xl font-bold mb-16 text-white">
+        <h2 className={`text-6xl md:text-7xl font-bold mb-16 transition-colors duration-700 ${
+          isScrolled ? 'text-white' : 'text-white'
+        }`}>
           Let's connect
         </h2>
 

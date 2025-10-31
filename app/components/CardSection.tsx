@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 
 export default function CardSection() {
@@ -14,6 +14,16 @@ export default function CardSection() {
   })
 
   const [showCard, setShowCard] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -30,13 +40,17 @@ export default function CardSection() {
   }
 
   return (
-    <section id="card" className="min-h-screen py-32 px-8 bg-white text-black">
+    <section id="card" className={`min-h-screen py-32 px-8 bg-white transition-colors duration-700 ${
+      isScrolled ? 'text-white' : 'text-black'
+    }`}>
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-6xl md:text-7xl font-bold mb-6">
             Draw your line
           </h2>
-          <p className="text-xl text-black/70">
+          <p className={`text-xl transition-colors duration-700 ${
+            isScrolled ? 'text-white/70' : 'text-black/70'
+          }`}>
             Get your free business card and join the vision
           </p>
         </div>
@@ -90,7 +104,11 @@ export default function CardSection() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-6 py-4 border-2 border-black/20 focus:border-[#F06A2A] outline-none transition-colors bg-transparent"
+                  className={`w-full px-6 py-4 border-2 outline-none transition-all duration-700 bg-transparent ${
+                    isScrolled 
+                      ? 'border-white/20 focus:border-[#F06A2A] text-white placeholder-white/50' 
+                      : 'border-black/20 focus:border-[#F06A2A] text-black placeholder-black/50'
+                  }`}
                 />
               </div>
               <div>
@@ -101,7 +119,11 @@ export default function CardSection() {
                   value={formData.phone}
                   onChange={handleChange}
                   required
-                  className="w-full px-6 py-4 border-2 border-black/20 focus:border-[#F06A2A] outline-none transition-colors bg-transparent"
+                  className={`w-full px-6 py-4 border-2 outline-none transition-all duration-700 bg-transparent ${
+                    isScrolled 
+                      ? 'border-white/20 focus:border-[#F06A2A] text-white placeholder-white/50' 
+                      : 'border-black/20 focus:border-[#F06A2A] text-black placeholder-black/50'
+                  }`}
                 />
               </div>
               <div>
@@ -111,7 +133,11 @@ export default function CardSection() {
                   placeholder="Address"
                   value={formData.address}
                   onChange={handleChange}
-                  className="w-full px-6 py-4 border-2 border-black/20 focus:border-[#F06A2A] outline-none transition-colors bg-transparent"
+                  className={`w-full px-6 py-4 border-2 outline-none transition-all duration-700 bg-transparent ${
+                    isScrolled 
+                      ? 'border-white/20 focus:border-[#F06A2A] text-white placeholder-white/50' 
+                      : 'border-black/20 focus:border-[#F06A2A] text-black placeholder-black/50'
+                  }`}
                 />
               </div>
               <div>
@@ -122,7 +148,11 @@ export default function CardSection() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-6 py-4 border-2 border-black/20 focus:border-[#F06A2A] outline-none transition-colors bg-transparent"
+                  className={`w-full px-6 py-4 border-2 outline-none transition-all duration-700 bg-transparent ${
+                    isScrolled 
+                      ? 'border-white/20 focus:border-[#F06A2A] text-white placeholder-white/50' 
+                      : 'border-black/20 focus:border-[#F06A2A] text-black placeholder-black/50'
+                  }`}
                 />
               </div>
               <div>
@@ -133,7 +163,11 @@ export default function CardSection() {
                   value={formData.business}
                   onChange={handleChange}
                   required
-                  className="w-full px-6 py-4 border-2 border-black/20 focus:border-[#F06A2A] outline-none transition-colors bg-transparent"
+                  className={`w-full px-6 py-4 border-2 outline-none transition-all duration-700 bg-transparent ${
+                    isScrolled 
+                      ? 'border-white/20 focus:border-[#F06A2A] text-white placeholder-white/50' 
+                      : 'border-black/20 focus:border-[#F06A2A] text-black placeholder-black/50'
+                  }`}
                 />
               </div>
               <div>
@@ -143,7 +177,11 @@ export default function CardSection() {
                   value={formData.service}
                   onChange={handleChange}
                   rows={3}
-                  className="w-full px-6 py-4 border-2 border-black/20 focus:border-[#F06A2A] outline-none transition-colors bg-transparent resize-none"
+                  className={`w-full px-6 py-4 border-2 outline-none transition-all duration-700 bg-transparent resize-none ${
+                    isScrolled 
+                      ? 'border-white/20 focus:border-[#F06A2A] text-white placeholder-white/50' 
+                      : 'border-black/20 focus:border-[#F06A2A] text-black placeholder-black/50'
+                  }`}
                 />
               </div>
               <button
