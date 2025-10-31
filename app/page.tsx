@@ -18,12 +18,6 @@ export default function Home() {
       <div className="snap-start">
         <VisionSection />
       </div>
-      <div className="snap-start">
-        <CardSection />
-      </div>
-      <div className="snap-start">
-        <ContactSection />
-      </div>
     </main>
   )
 }
