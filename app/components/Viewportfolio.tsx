@@ -8,7 +8,7 @@ export default function Viewportfolio() {
         <span aria-hidden="true" className="circle">
           <span className="icon arrow" />
         </span>
-        <span className="button-text">Learn More</span>
+        <span className="button-text"> Portfolio</span>
       </button>
     </StyledWrappers>
   );
