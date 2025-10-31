@@ -122,6 +122,16 @@
   }
 }
 
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Remove default scroll snap on body if needed */
+body {
+  overflow-x: hidden;
+}
+
 /* Custom animations */
 @keyframes fadeInUp {
   from {

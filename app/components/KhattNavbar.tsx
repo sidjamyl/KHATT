@@ -7,12 +7,19 @@ export default function KhattNavbar() {
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100)
+    const handleScroll = (e: Event) => {
+      const target = e.target as HTMLElement
+      // S'adapte à la hauteur de l'écran (100vh = une page complète)
+      const scrollThreshold = window.innerHeight * 0.5 // 50% de la hauteur de l'écran
+      setIsScrolled(target.scrollTop > scrollThreshold)
     }
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+    // Écouter le scroll sur le main au lieu de window
+    const mainElement = document.querySelector('main')
+    if (mainElement) {
+      mainElement.addEventListener("scroll", handleScroll)
+      return () => mainElement.removeEventListener("scroll", handleScroll)
+    }
   }, [])
 
   const scrollToSection = (id: string) => {
@@ -25,9 +32,9 @@ export default function KhattNavbar() {
 
   return (
     <>
-      {/* Expanding background */}
+      {/* Expanding background - pointer-events-none pour ne pas bloquer le scroll */}
       <div 
-        className={`fixed top-0 left-0 right-0 bg-[#141516] transition-all duration-700 ease-in-out ${
+        className={`fixed top-0 left-0 right-0 bg-[#141516] transition-all duration-700 ease-in-out pointer-events-none ${
           isScrolled ? 'h-screen z-0' : 'h-0 z-0'
         }`}
       />

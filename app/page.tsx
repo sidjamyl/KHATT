@@ -7,12 +7,22 @@ import ContactSection from "./components/ContactSection"
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="h-screen overflow-y-scroll snap-y snap-mandatory">
       <KhattNavbar />
-      <div className="relative z-10">
+      <div className="snap-start">
         <HeroSection />
+      </div>
+      <div className="snap-start">
         <AboutSection />
-        
+      </div>
+      <div className="snap-start">
+        <VisionSection />
+      </div>
+      <div className="snap-start">
+        <CardSection />
+      </div>
+      <div className="snap-start">
+        <ContactSection />
       </div>
     </main>
   )
