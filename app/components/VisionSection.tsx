@@ -17,7 +17,7 @@ export default function VisionSection() {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 1, ease: [0.6, 0.05, 0.01, 0.9] }}
+            transition={{ duration: 2, ease: [0.6, 0.05, 0.01, 0.9] }}
           >
             <Image
               src="/3.1.png"
@@ -31,11 +31,11 @@ export default function VisionSection() {
           {/* Text Content */}
           <div className="flex-1 w-full lg:max-w-5xl order-1 lg:order-2">
             <motion.h2 
-              className="font-heading opacity-90 text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-8xl font-bold text-white mb-3 sm:mb-4 md:mb-5 lg:mb-6"
+              className="font-heading opacity-90 text-5xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-8xl font-bold text-white mb-3 sm:mb-4 md:mb-5 lg:mb-6"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 0.9, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 1, ease: [0.6, 0.05, 0.01, 0.9] }}
+              transition={{ duration: 2, ease: [0.6, 0.05, 0.01, 0.9] }}
             >
               Don't&nbsp;advertise,<br />
               <span className="text-[#F06A2A]">cinematize</span>
@@ -44,21 +44,21 @@ export default function VisionSection() {
             <div className="mt-3 sm:mt-4 md:mt-5 lg:mt-0"></div>
             
             <motion.p 
-              className="text-base sm:text-lg md:text-xl lg:text-lg xl:text-lg 2xl:text-lg leading-relaxed mb-3 sm:mb-4 md:mb-5 lg:mb-6 opacity-90"
+              className="text-lg sm:text-lg md:text-xl lg:text-lg xl:text-lg 2xl:text-lg leading-relaxed mb-3 sm:mb-4 md:mb-5 lg:mb-6 opacity-90"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 0.9, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 1, delay: 0.3, ease: [0.6, 0.05, 0.01, 0.9] }}
+              transition={{ duration: 2, delay: 0.3, ease: [0.6, 0.05, 0.01, 0.9] }}
             >
               From short promotional content to films, we create frames that move, feel and live.
             </motion.p>
 
             <motion.p 
-              className="text-lg sm:text-xl md:text-2xl lg:text-xl xl:text-xl 2xl:text-xl opacity-90 font-light mb-4 sm:mb-5 md:mb-6 lg:mb-8 text-accent"
+              className="text-xl sm:text-xl md:text-2xl lg:text-xl xl:text-xl 2xl:text-xl opacity-90 font-light mb-4 sm:mb-5 md:mb-6 lg:mb-8 text-accent"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 0.9, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 1, delay: 0.4, ease: [0.6, 0.05, 0.01, 0.9] }}
+              transition={{ duration: 2, delay: 0.4, ease: [0.6, 0.05, 0.01, 0.9] }}
             >
               Join the vision — get your (free) card and draw your own line.
             </motion.p>
@@ -67,7 +67,7 @@ export default function VisionSection() {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, delay: 0.5, ease: [0.6, 0.05, 0.01, 0.9] }}
+              transition={{ duration: 1.6, delay: 0.5, ease: [0.6, 0.05, 0.01, 0.9] }}
             >
               <HoverButton />
             </motion.div>

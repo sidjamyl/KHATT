@@ -13,32 +13,32 @@ export default function AboutSection() {
           {/* Text Content */}
           <div className="flex-1 w-full lg:max-w-2xl order-2 lg:order-1">
             <motion.h2 
-              className="font-heading opacity-90 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-8xl font-bold text-white mb-3 sm:mb-4 md:mb-5 lg:mb-6"
+              className="font-heading opacity-90 text-3xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-8xl font-bold text-white mb-3 sm:mb-4 md:mb-5 lg:mb-6"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 0.9, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 1, ease: [0.6, 0.05, 0.01, 0.9] }}
+              transition={{ duration: 2, ease: [0.6, 0.05, 0.01, 0.9] }}
             >
               From line to life
             </motion.h2>
             <br className="hidden lg:block"></br>
             <motion.p 
-              className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-lg 2xl:text-lg leading-relaxed mb-3 sm:mb-4 md:mb-5 lg:mb-6 opacity-90"
+              className="text-sm sm:text-sm md:text-base lg:text-lg xl:text-lg 2xl:text-lg leading-relaxed mb-3 sm:mb-4 md:mb-5 lg:mb-6 opacity-90"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 0.9, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 1, delay: 0.3, ease: [0.6, 0.05, 0.01, 0.9] }}
+              transition={{ duration: 2, delay: 0.3, ease: [0.6, 0.05, 0.01, 0.9] }}
             >
               Founded on September 18th. Khatt is a collective of creative minds and marketing skills. We've directed
               and produced many projects and ideas to digital and physical success.
             </motion.p>
 
             <motion.p 
-              className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-xl opacity-90 font-light mb-4 sm:mb-5 md:mb-6 lg:mb-8 text-accent"
+              className="text-base sm:text-base md:text-lg lg:text-xl xl:text-xl 2xl:text-xl opacity-90 font-light mb-4 sm:mb-5 md:mb-6 lg:mb-8 text-accent"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 0.9, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 1, delay: 0.4, ease: [0.6, 0.05, 0.01, 0.9] }}
+              transition={{ duration: 2, delay: 0.4, ease: [0.6, 0.05, 0.01, 0.9] }}
             >
               More than a production house but a digital tool for businesses and directors, where cinema meets strategy.
             </motion.p>
@@ -47,7 +47,7 @@ export default function AboutSection() {
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.8, delay: 0.5, ease: [0.6, 0.05, 0.01, 0.9] }}
+              transition={{ duration: 1.6, delay: 0.5, ease: [0.6, 0.05, 0.01, 0.9] }}
             >
               <Viewportfolio />
             </motion.div>
@@ -59,7 +59,7 @@ export default function AboutSection() {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 1, ease: [0.6, 0.05, 0.01, 0.9] }}
+            transition={{ duration: 2, ease: [0.6, 0.05, 0.01, 0.9] }}
           >
             <img
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bg_image.png-j0OjKsVm23Awf7e8B9HQHGotbphPxk.jpeg"

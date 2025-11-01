@@ -14,25 +14,25 @@ export default function HeroSection() {
             className="space-y-2 sm:space-y-3 md:space-y-4 flex flex-col"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 4, ease: [0.6, 0.05, 0.01, 0.9] }}
+            transition={{ duration: 1.6, delay: 4, ease: [0.6, 0.05, 0.01, 0.9] }}
           >
             <div className="flex flex-row">
-            <h1 className="font-anton xl:text-[60px] 2xl:text-[100px] lg:text-[60px] md:text-[60px] sm:text-[60px] text-3xl leading-relaxed sm:leading-[0.85] tracking-tight">
+            <h1 className="font-anton xl:text-[60px] 2xl:text-[100px] lg:text-[60px] md:text-[60px] sm:text-[60px] text-4xl leading-relaxed sm:leading-[0.85] tracking-tight">
               EVERY IDEA BEGINS WITH 
             </h1>
             
             </div>
-            <h1 className="font-anton xl:text-[60px] 2xl:text-[100px] lg:text-[60px] md:text-[60px] sm:text-[60px] text-3xl leading-relaxed sm:leading-[0.85] tracking-tight text-[#F06A2A]">
+            <h1 className="font-anton xl:text-[60px] 2xl:text-[100px] lg:text-[60px] md:text-[60px] sm:text-[60px] text-4xl leading-relaxed sm:leading-[0.85] tracking-tight text-[#F06A2A]">
               A SKETCH
             </h1>
           </motion.div>
       
           {/* Subtitle - Smaller, elegant */}
           <motion.div 
-            className="space-y-2 text-sm sm:text-base md:text-lg max-w-xs sm:max-w-md md:max-w-8xl px-4 md:px-0"
+            className="space-y-2 text-base sm:text-base md:text-lg max-w-xs sm:max-w-md md:max-w-8xl px-4 md:px-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 3.4, ease: [0.6, 0.05, 0.01, 0.9] }}
+            transition={{ duration: 1.6, delay: 3.4, ease: [0.6, 0.05, 0.01, 0.9] }}
           >
             <p className="leading-relaxed">A scribble. A script. A line. Rooted in North Africa +213 Led by vision, we bring thought to existence.</p>
            
@@ -43,7 +43,7 @@ export default function HeroSection() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 3.6, ease: [0.6, 0.05, 0.01, 0.9] }}
+            transition={{ duration: 1.2, delay: 3.6, ease: [0.6, 0.05, 0.01, 0.9] }}
           >
             <Learnmore/>
           </motion.div>
