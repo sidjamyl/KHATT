@@ -25,24 +25,6 @@ const CustomCursor: React.FC = () => {
   const [cursorPosition, setCursorPosition] = useState<Position>({ x: 0, y: 0 });
   const [cursorColor, setCursorColor] = useState<string>("sky-500");
   const [clicked, setClicked] = useState<boolean>(false);
-  const [isMobile, setIsMobile] = useState<boolean>(false);
-
-  // Détecter si on est sur mobile
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024 || 'ontouchstart' in window);
-    };
-    
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  // Ne pas afficher le curseur sur mobile
-  if (isMobile) {
-    return null;
-  }
 
   useEffect(() => {
     // Event listener for mouse movement
@@ -118,14 +100,14 @@ const CustomCursor: React.FC = () => {
       <div
         ref={cursorRef}
         style={{ top: cursorPosition.y, left: cursorPosition.x }}
-        className="fixed pointer-events-none -translate-x-1/2 -translate-y-1/2 z-[9999] rounded-full w-2 h-2 bg-black"
+        className="hidden md:block fixed pointer-events-none -translate-x-1/2 -translate-y-1/2 z-[9999] rounded-full w-2 h-2 bg-black"
       />
 
       {/* Inner cursor with click effect */}
       <div
         ref={cursorInnerRef}
         style={{ top: cursorPosition.y, left: cursorPosition.x }}
-        className={`fixed pointer-events-none -translate-x-1/2 -translate-y-1/2 z-[9999] rounded-full w-8 h-8 border-2 border-${cursorColor}`}
+        className={`hidden md:block fixed pointer-events-none -translate-x-1/2 -translate-y-1/2 z-[9999] rounded-full w-8 h-8 border-2 border-${cursorColor}`}
       >
         <div
           ref={clickEffectRef}
