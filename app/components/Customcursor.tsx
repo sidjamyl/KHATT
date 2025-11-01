@@ -25,6 +25,24 @@ const CustomCursor: React.FC = () => {
   const [cursorPosition, setCursorPosition] = useState<Position>({ x: 0, y: 0 });
   const [cursorColor, setCursorColor] = useState<string>("sky-500");
   const [clicked, setClicked] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
+  // Détecter si on est sur mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024 || 'ontouchstart' in window);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Ne pas afficher le curseur sur mobile
+  if (isMobile) {
+    return null;
+  }
 
   useEffect(() => {
     // Event listener for mouse movement
