@@ -5,7 +5,7 @@ import AboutSection from "../components/AboutSection"
 import VisionSection from "../components/VisionSection"
 import ContactSection from "../components/ContactSection"
 
-export default function Home() {
+export default function Landing() {
   return (
     <main className="h-screen overflow-y-scroll overflow-x-hidden snap-y snap-mandatory">
       <KhattNavbar />

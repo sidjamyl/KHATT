@@ -5,6 +5,7 @@ on:
     branches:
       - master
 
+
 jobs:
   FTP-Deploy-Action:
     name: FTP-Deploy-Action
@@ -18,4 +19,4 @@ jobs:
         with:
           ftp-server: ${{ secrets.FTP_SERVER }}
           ftp-username: ${{ secrets.FTP_USERNAME }}
-          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          ftp-password: ${{ secrets.FTP_PASSWORD }} 
