@@ -10,12 +10,12 @@ export default function VisionSection() {
   return (
     <section id="vision" className={`h-screen flex items-center py-4 sm:py-6 md:py-8 lg:py-12 px-4 sm:px-6 lg:px-4 text-white`}> 
       <div className="max-w-7xl mx-auto w-full h-full flex flex-col justify-center">
-        <div className="flex flex-col items-center w-full space-y-16 sm:space-y-20 md:space-y-24 lg:space-y-32">
+        <div className="flex flex-col items-center w-full space-y-8 sm:space-y-10 md:space-y-12 lg:space-y-8 xl:space-y-6 2xl:space-y-8">
           
           {/* Title Section - Positioned High */}
           <div className="w-full text-center -mt-8 sm:-mt-10 md:-mt-12 lg:-mt-16 xl:-mt-20">
             <motion.h2 
-              className="font-heading opacity-90 text-5xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-8xl font-bold text-white"
+              className="font-heading opacity-90 text-5xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl 2xl:text-6xl font-bold text-white"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 0.9, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
@@ -27,7 +27,7 @@ export default function VisionSection() {
           </div>
 
           {/* Text Content Section - Well Separated */}
-          <div className="w-full lg:max-w-5xl mx-auto text-center space-y-6 sm:space-y-8">
+          <div className="w-full lg:max-w-5xl mx-auto text-center space-y-4 sm:space-y-5 md:space-y-6 xl:space-y-4 2xl:space-y-5">
             <motion.p 
               className="text-lg sm:text-lg md:text-xl lg:text-lg xl:text-lg 2xl:text-lg leading-relaxed opacity-90"
               initial={{ opacity: 0, y: 20 }}
@@ -49,7 +49,7 @@ export default function VisionSection() {
             </motion.p>
 
             <motion.div
-              className="flex justify-center pt-4"
+              className="flex justify-center pt-2 xl:pt-1 2xl:pt-2"
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true, amount: 0.3 }}

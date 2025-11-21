@@ -178,3 +178,16 @@ body {
 .animate-slide-in-right {
   animation: slideInRight 0.8s ease-out;
 }
+
+@keyframes rotateCard {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.rotate-card-animation {
+  animation: rotateCard 6s linear infinite;
+}

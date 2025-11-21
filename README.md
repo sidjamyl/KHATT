@@ -2,6 +2,16 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+### 1. Configuration EmailJS (Required)
+
+Pour que le formulaire de demande de carte fonctionne, vous devez configurer EmailJS :
+
+1. Copiez `.env.example` vers `.env.local`
+2. Suivez le guide complet dans **[EMAILJS_SETUP.md](./EMAILJS_SETUP.md)**
+3. Remplissez les 3 clés dans `.env.local`
+
+### 2. Installation et lancement
+
 First, run the development server:
 
 ```bash
