@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import emailjs from "@emailjs/browser"
 
 interface CardFormDialogProps {
   isOpen: boolean
@@ -12,7 +11,6 @@ interface CardFormDialogProps {
 export default function CardFormDialog({ isOpen, onClose }: CardFormDialogProps) {
   const [formData, setFormData] = useState({
     fullName: "",
-    address: "",
     email: "",
     phoneNumber: "",
     businessName: "",
@@ -37,45 +35,39 @@ export default function CardFormDialog({ isOpen, onClose }: CardFormDialogProps)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    console.log('📝 [Form] Soumission du formulaire...')
+    console.log('📦 [Form] Données:', formData)
+    
     setIsSubmitting(true)
     setSubmitStatus("idle")
 
     try {
-      // Configuration EmailJS
-      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || ""
-      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || ""
-      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ""
+      // Envoyer les données à l'API route Resend
+      console.log('🚀 [Form] Envoi vers /api/send-card-request...')
+      const response = await fetch('/api/send-card-request', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
 
-      // Préparer les données pour EmailJS
-      const templateParams = {
-        to_email: "nj_sid@esi.dz",
-        from_name: formData.fullName,
-        from_email: formData.email,
-        phone_number: formData.phoneNumber,
-        address: formData.address,
-        business_name: formData.businessName || "Non renseigné",
-        social_media: formData.socialMedia || "Non renseigné",
-        message: `
-Nouvelle demande de carte :
-
-Nom complet: ${formData.fullName}
-Email: ${formData.email}
-Téléphone: ${formData.phoneNumber}
-Adresse: ${formData.address}
-Nom de l'entreprise: ${formData.businessName || "Non renseigné"}
-Réseau social: ${formData.socialMedia || "Non renseigné"}
-        `.trim()
+      console.log('📡 [Form] Réponse reçue, status:', response.status)
+      
+      if (!response.ok) {
+        const errorData = await response.json()
+        console.error('❌ [Form] Erreur HTTP:', errorData)
+        throw new Error(errorData.details || 'Erreur lors de l\'envoi')
       }
 
-      // Envoyer l'email via EmailJS
-      await emailjs.send(serviceId, templateId, templateParams, publicKey)
-
+      const result = await response.json()
+      console.log('✅ [Form] Succès!', result)
+      
       setSubmitStatus("success")
       
       // Réinitialiser le formulaire
       setFormData({
         fullName: "",
-        address: "",
         email: "",
         phoneNumber: "",
         businessName: "",
@@ -88,10 +80,15 @@ Réseau social: ${formData.socialMedia || "Non renseigné"}
         setSubmitStatus("idle")
       }, 2000)
 
-    } catch (error) {
-      console.error("Erreur lors de l'envoi:", error)
+    } catch (error: any) {
+      console.error("❌ [Form] Erreur lors de l'envoi:")
+      console.error("Type:", error?.constructor?.name)
+      console.error("Message:", error?.message)
+      console.error("Stack:", error?.stack)
+      console.error("Détails complets:", error)
       setSubmitStatus("error")
     } finally {
+      console.log('🏁 [Form] Fin de la soumission')
       setIsSubmitting(false)
     }
   }
@@ -255,8 +252,6 @@ Réseau social: ${formData.socialMedia || "Non renseigné"}
                       />
                     </motion.div>
                   </div>
-
-                  
 
                   {/* Business Name */}
                   <motion.div
